@@ -78,7 +78,7 @@ def device_from_ip(ip):
     server = ScriptRunner()
     server.append("DEVICE=$(ip address show to %s | head -n 1 |"
                   " sed -e 's/.*: \(.*\):.*/\\1/g' | "
-                  "cut -d@ -f1)" % ip)
+                  " cut -d@ -f1)" % ip)
     # Test device, raises an exception if it doesn't exist
     server.append("ip link show \"$DEVICE\" > /dev/null")
     server.append("echo $DEVICE")
